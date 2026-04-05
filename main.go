@@ -2,39 +2,31 @@ package main
 
 import (
     "fmt"
-    "io"
     "log"
     "os"
 )
 
+
 func main() {
-    textFileName := "note.txt"
-    imageFileName := "utka.jpg"
-
-    f, err := os.Open(textFileName)
+    entries, err := os.ReadDir(".")
     if err != nil {
         log.Fatal(err)
     }
+    for _, e := range entries {
+        info, err := e.Info()
+        if err != nil {
+            continue
+        }
 
-    p, err := os.Open(imageFileName)
-    if err != nil {
-        log.Fatal(err)
+        size := info.Size() / 1024
+        var t string
+
+        if e.IsDir() {
+            t = "dir"
+        } else {
+            t = "file"
+        }
+
+        fmt.Printf("%s %s %d KB\n", e.Name(), t, size)
     }
-    defer f.Close()
-    defer p.Close()
-
-    data, err := io.ReadAll(f)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    photo, err := io.ReadAll(p)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Printf("В файле %s находится текст:\n%s\n", textFileName, string(data))
-    fmt.Printf("Файл %s занимает %d KB\n", imageFileName, len(photo)/1000)
-    fmt.Printf("Файл %s занимает %d byte\n", textFileName, len(data))
-
 }
