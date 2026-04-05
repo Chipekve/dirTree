@@ -22,14 +22,11 @@ func main() {
 		var size string
 
 		if e.IsDir() {
+			t = "dir"
 			size = "-"
 		} else {
-			size = fmt.Sprintf("%d KB", info.Size()/1024)
-		}
-		if e.IsDir() {
-			t = "dir"
-		} else {
 			t = "file"
+			size = fmt.Sprintf("%d KB", info.Size()/1024)
 		}
 		fmt.Printf("%-10s %-5s %s\n", e.Name(), t, size)
 	}
