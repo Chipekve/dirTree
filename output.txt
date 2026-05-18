@@ -1,11 +1,15 @@
-├─── .DS_Store  file (6148b)
-├─── go.mod     file (22b)
-├─── just       dir -    
-│	└─── black.jpeg file (95883b)
-├─── main.go    file (1686b)
-├─── note.txt   file (22b)
-├─── output.txt file (220b)
-├─── step1      dir -    
-│	├─── .DS_Store  file (6148b)
-│	└─── giacintovyj-ara-3.jpg file (36518b)
-└─── utka.JPG   file (64651b)
+├───aTest
+├───go.mod (22b)
+├───just
+│   └───black.jpeg (95883b)
+├───main.go (1656b)
+├───note.txt (22b)
+├───output.txt (153b)
+├───step1
+│   ├───giacintovyj-ara-3.jpg (36518b)
+│   └───step2
+├───text.txt (empty)
+├───utka.JPG (64651b)
+└───zTest
+    ├───test2
+    └───test3
